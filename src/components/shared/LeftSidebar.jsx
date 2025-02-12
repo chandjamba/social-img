@@ -2,7 +2,6 @@
 import { sidebarLinks } from "@/constants";
 import { useUserContext } from "@/context/AuthContext";
 import { useSignoutAccount } from "@/lib/react-query/queriesAndMutation";
-import { INavLink } from "@/types";
 import { useEffect } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
@@ -34,7 +33,7 @@ const LeftSidebar = () => {
           </div>
         </Link>
         <ul className="flex flex-col gap-6">
-          {sidebarLinks?.map((link: INavLink) => {
+          {sidebarLinks?.map((link) => {
             const isActive = pathname === link?.route;
             return (
               <li

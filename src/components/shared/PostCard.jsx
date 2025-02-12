@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import { useUserContext } from "../../context/AuthContext";
 import PostStats from "./PostStats";
 
-type PostCardProps = {
-  post: Models.Document;
-};
-const PostCard = ({ post }: PostCardProps) => {
+
+const PostCard = ({ post }) => {
   const { user } = useUserContext();
   if (!post?.creator) {
     return null;
@@ -50,7 +48,7 @@ const PostCard = ({ post }: PostCardProps) => {
         <div className="small-medium lg:base-medium py-5">
           <p>{post?.caption}</p>
           <ul className="flex gap-1 mt-2">
-            {post?.tags?.map((tag: string) => (
+            {post?.tags?.map((tag) => (
               <li key={tag} className="text-light-3">
                 #{tag}
               </li>

@@ -14,7 +14,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
 import FileUploader from "../shared/FileUploader";
 import { PostValidation } from "../../lib/validation/index";
-import { Models } from "appwrite";
 import { useUserContext } from "@/context/AuthContext";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
@@ -23,11 +22,8 @@ import {
   useUpdatePost,
 } from "@/lib/react-query/queriesAndMutation";
 import Loader from "../shared/Loader";
-type PostFormProps = {
-  post?: Models.Document;
-  action: "Create" | "Update";
-};
-const PostForm = ({ post, action }: PostFormProps) => {
+
+const PostForm = ({ post, action }) => {
   const { mutateAsync: createPost, isPending: isLoadingCreate } =
     useCreatePost();
   const { mutateAsync: updatePost, isPending: isLoadingUpdate } =
@@ -35,7 +31,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
   const { user } = useUserContext();
   const { toast } = useToast();
   const navigate = useNavigate();
-  const form = useForm<z.infer<typeof PostValidation>>({
+  const form = useForm({
     resolver: zodResolver(PostValidation),
     defaultValues: {
       caption: post ? post?.caption : "",
@@ -45,7 +41,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof PostValidation>) {
+  async function onSubmit(values) {
     if (post && action === "Update") {
       const updatedPost = await updatePost({
         ...values,

@@ -14,14 +14,7 @@ export const INITIAL_USER = {
   imageUrl: "",
   bio: "",
 };
-const INITIAL_STATE: {
-  user: typeof INITIAL_USER;
-  isLoading: boolean;
-  isAuthenticated: boolean;
-  setUser: React.Dispatch<React.SetStateAction<IUser>>;
-  setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
-  checkAuthUser: () => Promise<boolean>;
-} = {
+const INITIAL_STATE = {
   user: INITIAL_USER,
   isLoading: false,
   isAuthenticated: false,
@@ -32,14 +25,14 @@ const INITIAL_STATE: {
   },
 };
 const AuthContext = createContext(INITIAL_STATE);
-const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [user, setUser] = useState<IUser>(INITIAL_USER);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [user, setUser] = useState(INITIAL_USER);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const checkAuthUser = async () => {
     try {
-      const currentAccount: any = await getCurrentUser();
+      const currentAccount = await getCurrentUser();
       if (currentAccount) {
         setUser({
           id: currentAccount?.$id,

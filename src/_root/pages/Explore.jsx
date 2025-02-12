@@ -9,15 +9,12 @@ import { useInView } from "react-intersection-observer";
 import { Input } from "@/components/ui/input";
 import useDebounce from "@/hooks/useDebounce";
 
-export type SearchResultProps = {
-  isSearchFetching: boolean;
-  searchedPosts: any;
-};
+
 
 const SearchResults = ({
   isSearchFetching,
   searchedPosts,
-}: SearchResultProps) => {
+}) => {
   if (isSearchFetching) {
     return <Loader />;
   } else if (searchedPosts && searchedPosts?.documents?.length > 0) {

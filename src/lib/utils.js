@@ -1,13 +1,13 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-export function cn(...inputs: ClassValue[]) {
+export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
-export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
+export const convertFileToUrl = (file) => URL.createObjectURL(file);
 
-export function formatDateString(dateString: string) {
-  const options: Intl.DateTimeFormatOptions = {
+export function formatDateString(dateString) {
+  const options = {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -25,16 +25,16 @@ export function formatDateString(dateString: string) {
 }
 
 //
-export const multiFormatDateString = (timestamp: string = ""): string => {
+export const multiFormatDateString = (timestamp = "") => {
   const timestampNum = Math.round(new Date(timestamp).getTime() / 1000);
-  const date: Date = new Date(timestampNum * 1000);
-  const now: Date = new Date();
+  const date = new Date(timestampNum * 1000);
+  const now = new Date();
 
-  const diff: number = now.getTime() - date.getTime();
-  const diffInSeconds: number = diff / 1000;
-  const diffInMinutes: number = diffInSeconds / 60;
-  const diffInHours: number = diffInMinutes / 60;
-  const diffInDays: number = diffInHours / 24;
+  const diff = now.getTime() - date.getTime();
+  const diffInSeconds = diff / 1000;
+  const diffInMinutes = diffInSeconds / 60;
+  const diffInHours = diffInMinutes / 60;
+  const diffInDays = diffInHours / 24;
 
   switch (true) {
     case Math.floor(diffInDays) >= 30:
@@ -52,6 +52,6 @@ export const multiFormatDateString = (timestamp: string = ""): string => {
   }
 };
 
-export const checkIsLiked = (likeList: string[], userId: string) => {
+export const checkIsLiked = (likeList, userId) => {
   return likeList.includes(userId);
 };
