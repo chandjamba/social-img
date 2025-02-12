@@ -63,7 +63,7 @@ const Profile = () => {
 
 export default Profile;
 
-function PostCard({ post }: { post: any }) {
+function PostCard({ post }) {
   return (
     <Card>
       <CardHeader>

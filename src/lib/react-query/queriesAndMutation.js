@@ -1,4 +1,4 @@
-import { INewPost, INewUser, IUpdatePost } from "../../types/index";
+
 import {
   createPost,
   createUserAccount,

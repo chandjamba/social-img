@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import "./global.css";
-import AuthLayout from "./_auth/AuthLayout.js";
-import SigninForm from "./_auth/forms/SigninForm.js";
-import SignupForm from "./_auth/forms/SignupForm.js";
+import AuthLayout from "./_auth/AuthLayout.jsx";
+import SigninForm from "./_auth/forms/SigninForm.jsx";
+import SignupForm from "./_auth/forms/SignupForm.jsx";
 import {
   Explore,
   AllUsers,
@@ -14,7 +14,7 @@ import {
   Saved,
   UpdateProfile,
 } from "./_root/pages/index.js";
-import RootLayout from "./_root/RootLayout.js";
+import RootLayout from "./_root/RootLayout.jsx";
 import { Toaster } from "@/components/ui/toaster";
 function App() {
   return (

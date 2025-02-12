@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button.js";
+import { Button } from "@/components/ui/button.jsx";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { SignupValidation } from "../../lib/validation/index";
 import { z } from "zod";
-import Loader from "@/components/shared/Loader.js";
+import Loader from "@/components/shared/Loader.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import { useCreateUserAccountMutation } from "@/lib/react-query/queriesAndMutation";

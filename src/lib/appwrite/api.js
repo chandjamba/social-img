@@ -1,4 +1,4 @@
-import { INewPost, INewUser, IUpdatePost } from "@/types/index.js";
+
 import { ID, Query } from "appwrite";
 import { account, avatars, databases, appwriteConfig, storage } from "./config";
 

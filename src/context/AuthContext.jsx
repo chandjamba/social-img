@@ -1,7 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getCurrentUser } from "@/lib/appwrite/api";
-import { IUser } from "@/types";
 import { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
